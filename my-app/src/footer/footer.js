@@ -1,0 +1,26 @@
+import './footer.css'
+
+const a = (item)=>{
+    return item*item;
+}
+const b = (item)=>{
+    return (item*item)/item;
+}
+function Footer({color}) {
+     const multiplier = (a) =>{
+        return a*2
+     };
+     const multiplier3 = (a) =>{
+        return a*3
+     };
+
+
+    return(
+        <div className="Footer" style={{ '--footer-bg-color':  color.footer}}>
+            <p style={{margin:'0px'}}>this if footer</p>
+        </div>
+    )
+}
+
+export default Footer;
+export { a,b};

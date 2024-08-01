@@ -1,0 +1,18 @@
+.main{
+    width: 100%;
+    margin: 0px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.HeaderTag{
+    flex:2;
+
+}
+.MainBodyTag{
+    flex:8;
+}
+
+.FooterTag{
+    flex:2;
+}

@@ -1,0 +1,73 @@
+front end
+node js,
+react js
+
+
+Desgin
+1) Car type - category
+2) Car info - car details 
+
+React 
+
+0) npm install - after ur appilication setup
+
+1) how to create a application - if ur are creting a new app insted of clone from git hub.
+            npx create-react-app simpledemo
+
+2) how to run ur application
+        npm start
+
+3) how to add dependecies or extrenal packages
+        npm install packagename
+
+4) how to run test scripts
+        npm run test
+
+
+
+Database 
+Mongodb 
+    Collections -
+                1) Category  - {
+                    type - name
+                }
+                2) car details - {
+                    number
+                    name 
+                    color
+                    rent per kilometer
+                }
+                3) Booking Details - {
+                    usernumber
+                    type of car
+                    car number
+                    date and time
+                    cost per kilometer
+                }
+
+React
+1) Component - all the html part combined and with js, simple us a structure.
+    a) Class components
+    b) Fucntional Components 
+2) Data movement-
+        one directioonla that is from parent to chid.
+        no data sharing between sibings 
+
+3) Hooks
+    Fuctional components;
+        1) useState
+
+        -----------------------------------------
+
+        2) useEffects
+            1) run every reneder
+            2) run on particular state cahnge
+            3) run only once
+
+4) Assests folder and how to use install -  import as an variable and use that vaariabel
+
+5) React router dom
+    1) 1) path and attach component - createbowserouter()
+    1) 2) to navigate use useNavigate()  - navigate('path')
+
+6) intro to flask

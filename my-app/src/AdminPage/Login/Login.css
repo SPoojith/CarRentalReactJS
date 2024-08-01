@@ -1,0 +1,32 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    box-shadow: '0 4px 8px 0 rgba(0,0,0,0.2)';
+  }
+
+  .form{
+    display: flex;
+    flex-direction: column;
+    box-shadow: '0 4px 8px 0 rgba(0,0,0,0.2)';
+  }
+
+  .form div{
+    margin: 10px;
+  }
+
+  
+  @keyframes blink {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }

@@ -1,0 +1,23 @@
+.Header{
+    background-color: var(--header-bg-color);
+    display: flex;
+    flex-direction: row;
+}
+
+.Img{
+    display: flex;
+    flex: 80;
+    flex-direction: row;
+    width: 100%;
+    justify-content: left;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.Menu{
+    display: flex;
+    flex: 20;
+    width: 100%;
+    justify-content: right;
+    align-content: center;
+}
