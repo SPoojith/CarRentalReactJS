@@ -25,18 +25,23 @@ function Login({displayAddCars}) {
       "password":password
     }
     let FD = await objectToFormData(Data)
-    let res = await AdminLogin('http://192.168.1.25:5656/AdminLogin',FD)
-    if(res['ErrorCode'] === 5001){
-      setLoading(false);
-      toast.error("Wrong UserName");
-      }else if(res['ErrorCode'] === 5002){
-      setLoading(false);
-      toast.error("Wrong Password");
-      }else if(res['ErrorCode'] === 2002){
-      setLoading(false);
-      toast.success("Login Successful, Session Created");
-      displayAddCars()
-      localStorage.setItem("SessionId",res['sessionId'])
+    try {
+      let res = await AdminLogin('http://192.168.1.35:5656/AdminLogin',FD)
+      if(res['ErrorCode'] === 5001){
+        setLoading(false);
+        toast.error("Wrong UserName");
+        }else if(res['ErrorCode'] === 5002){
+        setLoading(false);
+        toast.error("Wrong Password");
+        }else if(res['ErrorCode'] === 2002){
+        setLoading(false);
+        toast.success("Login Successful, Session Created");
+        displayAddCars()
+        localStorage.setItem("SessionId",res['sessionId'])
+      }
+    } catch (error) {
+        setLoading(false);
+        toast.error("Server gone rouge, Please Try Again Later");
     }
   };
 

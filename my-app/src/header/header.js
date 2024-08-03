@@ -16,6 +16,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ColorLensIcon from '@mui/icons-material/ColorLens';
 import ListItemText from '@mui/material/ListItemText';
+import CarRentalIcon from '@mui/icons-material/CarRental';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -92,6 +93,16 @@ function Header({color,changeBackgroundColor}) {
                             <AccountCircleIcon></AccountCircleIcon>
                         </ListItemIcon>
                         <ListItemText primary={UserName} />
+                    </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding>
+                    <ListItemButton onClick={()=>{
+                        n("/AdminPage")
+                    }}>
+                        <ListItemIcon>
+                            <CarRentalIcon></CarRentalIcon>
+                        </ListItemIcon>
+                        <ListItemText primary={'AddCars'} />
                     </ListItemButton>
                 </ListItem>
                 <ListItem disablePadding>

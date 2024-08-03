@@ -30,7 +30,7 @@ function AddCars({displayLogin}) {
     event.preventDefault();
     setLoading(true)
     let formData = await objectToFormData(car);
-    let res = await makeApiRequest('http://192.168.1.25:5656/AddCars',formData);
+    let res = await makeApiRequest('http://192.168.1.35:5656/AddCars',formData);
     if(res['ErrorCode'] == 2001){
       toast.success("Cars added successfully!");
       setLoading(false);

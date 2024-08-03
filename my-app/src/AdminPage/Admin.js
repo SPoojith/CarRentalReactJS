@@ -27,7 +27,7 @@ const displayLogin = () => {
                 Car Rental
         </div>
         <div style={{flex:'80'}}>
-            {true ? 
+            {isShowDiisplayCars ? 
                     <Login displayAddCars={displayAddCars}></Login>
                         : 
                     <AddCars displayLogin={displayLogin}></AddCars>
