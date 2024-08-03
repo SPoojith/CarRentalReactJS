@@ -29,13 +29,13 @@ function DisplayCars({displayBooking}) {
   
   const cardData = [
       { 
-        category: "sport",
+        category: "sports",
         title: "Sport Adventure",
         description: "Experience the thrill of adrenaline with our exciting sports adventure package.",
         imageUrl: sports
       }, 
       { 
-          category: "luxuarly",
+          category: "luxury",
           title: "Luxuarlu Experience",
           description: "The ultimate luxury experience for those who seek extravagance and opulence.",
           imageUrl: luxary

@@ -13,7 +13,7 @@ useEffect(() => {
   }else{
     setisShowDiisplayCars(false);
   }
-}, [isShowDiisplayCars]);
+},[isShowDiisplayCars]);
 
 const displayAddCars = () => {
   setisShowDiisplayCars(false)

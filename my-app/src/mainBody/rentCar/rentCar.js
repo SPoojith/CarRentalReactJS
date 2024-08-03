@@ -6,39 +6,41 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import "../rentCar/rentCar.css"
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import family from '../../Assests/family.jpg'
 import { grey } from '@mui/material/colors';
 import { useState ,useEffect} from 'react';
+import { getCars, objectToFormData } from '../../Services/service';
 function RentCar({SelectedCategory,displayCategory}) {
-    const carList = [
-    {
-        type:'family',
-        color:'red',
-        model:'santro',
-        number:'3639',
-        price:'13/km'
-    },
-    {
-        type:'family',
-        color:'green',
-        model:'santro',
-        number:'3639',
-        price:'13/km'
-    },
-    {
-        type:'family',
-        color:'grey',
-        model:'santro',
-        number:'3639',
-        price:'13/km'
-    },
-]
 
     const [data,setData] = useState("hi")
+    const [CarListData,setCarListData] = useState([])
 
-    useEffect(()=>{
-        console.log("useeffect rriggred",data)
-    },[])
+    useEffect( ()=>{
+        async function fetchData() {
+            let data = {
+                'Type':SelectedCategory
+            }
+            let formData = await objectToFormData(data);
+            try {
+                let res = await getCars('http://192.168.1.35:5656/getCars',formData);
+                if(res['ErrorCode'] === 2001){
+                    let carList = res['CarList']
+                    if(carList.length === 0){
+                        toast.error("No Cars");
+                    }
+                    setCarListData(carList)
+                }else{
+                    setCarListData([])
+                }
+            } catch (error) {
+                setCarListData([])
+                toast.error("server gone rogue2");
+            }
+        }
+        fetchData()
+    },[data,SelectedCategory])
 
     return(
         <div className='carListContainer' style={{ border: '1px solid rgba(0, 0, 0, 0.2)', borderRadius: '8px', boxShadow: '0px 3px 6px rgba(0, 0, 0, 0.1)',margin:'30px' }}>
@@ -49,7 +51,7 @@ function RentCar({SelectedCategory,displayCategory}) {
             <h1 style={{ color: 'blue', fontSize: '24px',flex:'9',display:'flex',alignItems:'center',justifyContent:'center' }}>Book a {SelectedCategory} car</h1>
             </div>
             <div className='displayCars'>
-            {carList.map((card, index) => (
+            {CarListData.map((card, index) => (
                     <Card key={index} sx={{ minWidth: 275 }} className='cards' style={{
                         border: `2px solid ${card.color}`,
                     }}>
@@ -88,12 +90,14 @@ function RentCar({SelectedCategory,displayCategory}) {
                     <CardActions className='book'>
                     <Button size="small" onClick={
                         ()=>{
-                        setData("hellol")
+                            toast.success("Cars added successfully!");    
                     }}>Book</Button>
                     </CardActions>
                 </Card>
+                
             ))}
             </div>
+            <ToastContainer />
         </div>
     );
 }
