@@ -12,11 +12,19 @@ import family from '../../Assests/family.jpg'
 import { grey } from '@mui/material/colors';
 import { useState ,useEffect} from 'react';
 import { getCars, objectToFormData } from '../../Services/service';
+import { GlobalState } from '../../store';
+
+
 function RentCar({SelectedCategory,displayCategory}) {
 
     const [data,setData] = useState("hi")
     const [CarListData,setCarListData] = useState([])
 
+    const count = GlobalState((state) => state.count);
+    
+    const increaseCount = GlobalState((state) => state.increaseCount);
+
+    
     useEffect( ()=>{
         async function fetchData() {
             let data = {
@@ -90,7 +98,8 @@ function RentCar({SelectedCategory,displayCategory}) {
                     <CardActions className='book'>
                     <Button size="small" onClick={
                         ()=>{
-                            toast.success("Cars added successfully!");    
+                            toast.success("Cars added successfully!");
+                            increaseCount()    
                     }}>Book</Button>
                     </CardActions>
                 </Card>

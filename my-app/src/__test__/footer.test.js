@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Footer, { a,b } from '../footer/footer';
+import Footer, { a,b,c } from '../footer/footer';
 
 describe("Footer component", () => {
   it("should render Footer component correctly", async () => {
@@ -19,7 +19,7 @@ describe("multiplier", () => {
         footer: 'red',
       }
       render(<Footer color={color} />);
-      const element = await screen.findByText('count is 6'); // Corrected the text to match the component
+      const element = await screen.findByText('this if footer'); // Corrected the text to match the component
       expect(element).toBeInTheDocument();
     });
   });
@@ -42,6 +42,14 @@ describe("multiplier", () => {
   describe('complex functional component', () => {
     it('should multiply the input by itself', () => {
         expect(b(2)).toBe((2*2)/2)
+      
+      // Additional test cases can be added as needed
+    });
+  });
+
+  describe('complex functional component C', () => {
+    it('should return addition of same number', () => {
+        expect(c(5)).toBe(10)
       
       // Additional test cases can be added as needed
     });
